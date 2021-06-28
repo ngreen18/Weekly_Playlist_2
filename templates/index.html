@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+
+<!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+<!-- CSS Style Sheet -->
+    <link rel="stylesheet" href="static/css/style.css" type="text/css"/>
+    
+    <title>81V Weekly Playlist</title>
+  </head>
+
+  <div>
+    {% if session %}
+    <p>You are logged in as {{session["username"]}} <a href = "/logout"> LOGOUT (CLICK HERE) </a></p>
+    {% else %}
+  <h2>Log in</h2>
+    <form action="/login" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="username">
+        <label for="password">Password</label>
+        <input type="password" name="password">
+        <input type="submit" value="Log In">
+    </form>
+     {% endif %}
+   
+     <p>No account? <a href="/signup">Sign up.</a></p>
+
+</div>
+
+  <body>
+    <h1>Science Weekly Playlist for Class 81V</h1>
+    <h2>The Sun and Our Seasons</h2>
+
+<!--  First Assignment -->
+    
+    <a href="https://middleschool88.padlet.org/ngreen74/blx2zwg2lrmxojkb">
+      <img
+        src="https://cdn.glitch.com/24f2e509-e76f-4fb4-9393-6aed49ac2e9d%2FCheckpoint%20%231.png?v=1621822343359"
+      />
+    </a>
+
+    <div class="Checkpoint">
+      <p>Checkpoint #1</p>
+    </div>
+
+    <div class="Dropdown">
+      <p>Date Completed: Friday, May 21st</p>
+      <p>Date Due: Tuesday, June 1st</p>
+    </div>
+
+
+    <div class="h_line"></div>
+
+    <p>
+      
+
+
+        
+    </p>
+
+<!--   First Question Section   -->
+<h4>The following students had question on assignment #1:</h4>
+   
+    <div>
+        <ul>
+        {% for question in all_data %}
+            {% if question.Question1 %} 
+            <li>{{ question.FirstName }} {{ question.LastName }} asked: {{question.Question1}} </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="h_line"></div>
+
+    <p>
+      
+
+
+        
+    </p>
+    
+<!--   Second Assignment   -->
+    
+    <a href="https://classroom.google.com/u/0/c/MTkyMjAzOTI0OTcx/a/MjkwNzExNDE0NzU0/details">
+      <img
+        src="https://cdn.glitch.com/2d71a0f1-d0f0-4632-8fe7-4cc4a2083433%2FScreen%20Shot%202021-05-28%20at%207.44.13%20AM.png?v=1622202261563"
+      />
+    </a>
+
+    <div class="Checkpoint">
+      <p>Checkpoint #2</p>
+    </div>
+
+    <div class="Dropdown">
+      <p>Date Completed: Wednesday, May 26th</p>
+      <p>Date Due: Tuesday, June 1st</p>
+    </div>
+
+<!--   Second Question Section   -->
+    <div class="h_line"></div>
+
+    <p>
+      
+
+
+        
+    </p>
+    
+<h4>The following students had question on assignment #2:</h4>
+    <div>
+        <ul>
+        {% for question in all_data_2 %}
+            {% if question.Question2 %} 
+            <li>{{ question.FirstName }} {{ question.LastName }} asked: {{question.Question2}} </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="h_line"></div>
+
+    <p>
+      
+
+
+        
+    </p>
+    
+<!--   Question Forms   -->
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Ask Your Class a Question!
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong class = "question">
+
+            <form method = "POST" name = "one" action = "/index">
+            <label for = "first_name"> First name: </label>
+            <input type = "text" name = "first_name" value = "">
+            <label for = "last_name"> Last Name: </label>
+            <input type = "text" name = "last_name" value = "">
+            <label for = "question#1"> Your Question for Assignment #1: </label>
+            <input type = "text" name = "question#1" value = "">
+            <label for = "question#2"> Your Question for Assignment #2 </label>
+            <input type = "text" name = "question#2" value = "">
+            <input type = "submit" value = "Submit">
+            </form>
+
+        </strong> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+body {
+  background-color: rgb(255, 252, 242);
+}
+
+.h_line {
+  border-top: 1px dotted teal;
+}
+
+h1 {
+  color: teal;
+  font-family: "BioRhyme", serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+h2 {
+  color: teal;
+  font-family: "BioRhyme", serif;
+  font-weight: 200;
+  text-align: center;
+}
+
+.Checkpoint {
+  color: teal;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.Dropdown {
+  color: rgb(0, 235, 187);
+  font-family: "Space Mono", monospace;
+  font-weight: 200;
+  text-align: center;
+}
+
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.question {
+    
+    text-align: center;
+
+}
+
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
